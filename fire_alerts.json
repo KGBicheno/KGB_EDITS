@@ -1,0 +1,132 @@
+{
+  "condition": "disaster",
+  "situation": "fire",
+  "alerts": [
+    {
+      "alert_id": "QF6-20-036046",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-02T00:36:39+10:00\nCurrent Status: Going\nDetails: \nVehicles on Scene:1\nVehicles on Route:0",
+      "published": "2020-04-02T00:36:39+10:00",
+      "title": "Pine Creek Rd & Nerang Murwillumbah Rd, Numinbah V",
+      "updated": "2020-04-10T09:41:15+10:00",
+      "location": "-28.113536 153.240336"
+    },
+    {
+      "alert_id": "QF3-20-038598",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-08T14:12:43+10:00\nCurrent Status: Patrolled\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-08T14:12:43+10:00",
+      "title": "Mountain Rd, Bony Mountain",
+      "updated": "2020-04-10T07:12:17+10:00",
+      "location": "-28.124768 151.853798"
+    },
+    {
+      "alert_id": "QF4-20-039606",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T03:47:37+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:1\nVehicles on Route:0",
+      "published": "2020-04-11T03:47:37+10:00",
+      "title": "852 Noosa Rd, Mothar Mountain",
+      "updated": "2020-04-11T03:48:35+10:00",
+      "location": "-26.23889 152.746482"
+    },
+    {
+      "alert_id": "QF2-20-039641",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T05:16:35+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:1",
+      "published": "2020-04-11T05:16:35+10:00",
+      "title": "103 Seiferts Rd, Bondoola",
+      "updated": "2020-04-11T05:48:58+10:00",
+      "location": "-23.16793 150.672258"
+    },
+    {
+      "alert_id": "QF7-20-039668",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T05:59:09+10:00\nCurrent Status: Patrolled\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-11T05:59:09+10:00",
+      "title": "Ellerbeck Rd, Kennedy",
+      "updated": "2020-04-11T07:46:15+10:00",
+      "location": "-18.213677 145.942695"
+    },
+    {
+      "alert_id": "QF2-20-039728",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T07:33:03+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:1\nVehicles on Route:0",
+      "published": "2020-04-11T07:33:03+10:00",
+      "title": "254 THOROGOOD RD, Kelsey Creek",
+      "updated": "2020-04-11T07:49:54+10:00",
+      "location": "-20.423668 148.449545"
+    },
+    {
+      "alert_id": "QF6-20-039734",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T07:37:38+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:2",
+      "published": "2020-04-11T07:37:38+10:00",
+      "title": "119 Wensley Rd, Ripley",
+      "updated": "2020-04-11T08:02:55+10:00",
+      "location": "-27.685627 152.786831"
+    },
+    {
+      "alert_id": "QF3-20-038598",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-08T14:12:43+10:00\nCurrent Status: Patrolled\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-08T14:12:43+10:00",
+      "title": "Mountain Rd, Bony Mountain",
+      "updated": "2020-04-10T07:12:17+10:00",
+      "location": "-28.124768 151.853798"
+    },
+    {
+      "alert_id": "QF4-20-039606",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T03:47:37+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:1\nVehicles on Route:0",
+      "published": "2020-04-11T03:47:37+10:00",
+      "title": "852 Noosa Rd, Mothar Mountain",
+      "updated": "2020-04-11T08:53:34+10:00",
+      "location": "-26.23889 152.746482"
+    },
+    {
+      "alert_id": "QF7-20-039668",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T05:59:09+10:00\nCurrent Status: Patrolled\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-11T05:59:09+10:00",
+      "title": "Ellerbeck Rd, Kennedy",
+      "updated": "2020-04-11T07:46:15+10:00",
+      "location": "-18.213677 145.942695"
+    },
+    {
+      "alert_id": "QF2-20-039728",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T07:33:03+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:1\nVehicles on Route:0",
+      "published": "2020-04-11T07:33:03+10:00",
+      "title": "254 THOROGOOD RD, Kelsey Creek",
+      "updated": "2020-04-11T07:49:54+10:00",
+      "location": "-20.423668 148.449545"
+    },
+    {
+      "alert_id": "QF4-20-039790",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-11T09:01:19+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-11T09:01:19+10:00",
+      "title": "Tableland Rd, Gayndah",
+      "updated": "2020-04-11T09:06:34+10:00",
+      "location": "-25.638431 151.648808"
+    },
+    {
+      "alert_id": "QF4-20-040007",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-12T01:15:02+10:00\nCurrent Status: Going\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-12T01:15:02+10:00",
+      "title": "76 East Burnett Tce, Gayndah",
+      "updated": "2020-04-12T01:17:37+10:00",
+      "location": "-25.62712 151.617063"
+    },
+    {
+      "alert_id": "QF3-20-038598",
+      "category": "Information",
+      "content": "Alert Level: Information\nReported: 2020-04-08T14:12:43+10:00\nCurrent Status: Patrolled\nDetails: There is a vegetation fire at this location. Smoke may affect residents and motorists in the area. Residents should close their doors and windows and keep medication close by if suffering from a respiratory condition. Motorists should use caution and drive to conditions. If you believe your property is under threat, you should call Triple Zero (000) immediately.\nVehicles on Scene:0\nVehicles on Route:0",
+      "published": "2020-04-08T14:12:43+10:00",
+      "title": "Mountain Rd, Bony Mountain",
+      "updated": "2020-04-10T07:12:17+10:00",
+      "location": "-28.124768 151.853798"
+    }
+  ]
+}
