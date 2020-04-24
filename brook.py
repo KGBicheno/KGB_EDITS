@@ -170,7 +170,7 @@ async def Add_feed_help(ctx):
     await ctx.author.send("Also keep in mind that the feeds are human-moderated, so decency is a factor in the approval process.")
     await ctx.author.send("Most importantly, the url you're trying to use must point to a properly-formed RSS feed, and those can be rare.")
     await ctx.author.send("For your best chance of succeeding, run your url through the w3schools RSS validation service at https://validator.w3.org/feed/ before adding it here.")
-    await ctx.author.send("You may find very few RSS feeds are put together properly, especially those from Wordpress sites. Sadly, I just can't work with them â€” I'm a bot.")
+    await ctx.author.send("You may find very few RSS feeds are put together properly, especially those from Wordpress sites. Sadly, I just can't work with them — I'm a bot.")
     await ctx.author.send("The topic is open to your discretion, but if it is more than one word long, again, please wrap it in quotation marks.")
     await ctx.author.send("Please make the topic descriptive and, if possible, attractive to those looking for something to read. For instance 'Trivia' instead of 'Generic'.")
     await ctx.author.send("When adding feeds for emergency or health services, please send the Group Editor a DM with supporting documents to aid in moderation.")
@@ -260,13 +260,6 @@ async def Economic_reading_list(ctx, verbosity, destination):
                 await ctx.author.send(item)
 
 
-@bot.command(name="chargethebooth")
-async def python_dj(ctx):
-    async for message in guild.TextChannel.history(ctx, limit=250):
-        if message.author.id == str(235088799074484224) or str(252128902418268161):
-            m = message 
-            break
-    deleted = await ctx.channel.purge(limit=100, check=(lambda m : m.author.bot == True), bulk=True)
 
 alert = [] 
 @bot.command(name="Fires")   
@@ -419,6 +412,10 @@ def intake_dice(multiplier, polycount):
     return results
 
 @bot.command(name="r")
+#add ability to reroll 1's
+#add ability to reroll misses, need to take parameters for that
+#force reroll successes
+#specify target number for rerolls etc
 async def roll_polynomial(ctx, diceroll):
     results = []
     multiplier = re.search("(^\d*)", diceroll)
