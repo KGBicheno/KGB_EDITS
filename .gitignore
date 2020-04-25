@@ -1,0 +1,12 @@
+bot_connect Session.sql
+brook copy.py
+.env
+db_con_test.py
+__pycache__/db_con_test.cpython-38-pytest-5.4.1.pyc
+__pycache__/rejason.cpython-38.pyc
+__pycache__/rss_test.cpython-38-pytest-5.4.1.pyc
+db_create_bin/c_user_db.py
+.vscode/settings.json
+.vscode/launch.json
+user_list.txt
+posted.txt
