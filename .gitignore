@@ -1,0 +1,20 @@
+.env
+.vscode/
+Channel_id_list.txt
+KGB_Brook/
+RSS_ModQ.txt
+TripleJ-Hot100-2020.txt
+__pycache__/
+bot_connect Session.sql
+brook copy.py
+db_con_test.py
+db_create_bin/
+discord.log
+feature_requests.txt
+index.html
+infinity_game.json
+pandemic_roster.json
+past_top_100s.json
+posted.txt
+raw_music.txt
+user_list.txt
