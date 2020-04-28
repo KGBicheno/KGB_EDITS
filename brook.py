@@ -8,7 +8,6 @@ import re
 import urllib.request
 from datetime import date, datetime
 from pprint import pprint
-from typing import List, Any
 from urllib.request import urlopen
 import discord
 import feedparser
@@ -17,7 +16,21 @@ from bs4 import BeautifulSoup
 from discord.ext import commands
 from dotenv import load_dotenv
 
-bot = commands.Bot(command_prefix="$")
+def get_prefix(client, message):
+    prefixes = ['$', '>', '>>', 'b.']
+
+    if not message.guild:
+        prefixes = ['>']
+    return commands.when_mentioned_or(*prefixes)(client, message)
+
+bot = commands.Bot(
+    command_prefix=get_prefix,
+    description='EDITS: Emergency Dispatcher In Traumatic Scenarios | by KGB',
+    owner_id=107221097174319104,
+    case_insensitive=True
+)
+
+
 
 now = date.today()
 today = now.isoformat()
@@ -47,11 +60,11 @@ posted = []
 suggestions = []
 dramatis = []
 
+cogs = ['gaming_cog']
 
 def is_me():
     def predicate(ctx):
         return ctx.message.author.id == 107221097174319104
-
     return commands.check(predicate)
 
 
@@ -63,6 +76,9 @@ async def on_ready():
     print(f'{bot.user} is connected to {liquid_guild.name}.\n'
           f'{liquid_guild.name}(id {liquid_guild.id})'
           )
+    for cog in cogs:
+        bot.load_extension(cog)
+    return
 
 
 @bot.command(name="Commands")
@@ -124,7 +140,6 @@ async def news_list(ctx, number_of_articles, as_message):
                 counter += 1
                 if counter == number_of_articles:
                     break
-
 
 
 
@@ -422,264 +437,280 @@ async def need_tunes_bro(ctx):
             await ctx.author.send(song)
 
 
-@bot.command(name="joke")
-async def random_joke(ctx):
-    url = "https://joke3.p.rapidapi.com/v1/joke"
-
-    querystring = {"nsfw": "true"}
-
-    headers = {
-        'x-rapidapi-host': "joke3.p.rapidapi.com",
-        'x-rapidapi-key': RAPID_API
-    }
-
-    response = requests.request("GET", url, headers=headers, params=querystring)
-
-    print(response.text)
-
-
-@bot.command(name="valid_groups")
-async def mono_list_groups(ctx):
-    valid_groups = ["Purple", "Light-Blue", "Violet", "Orange", "Red", "Yellow", "Dark-Green", "Dark-Blue", "Utilities",
-                    "Railroads", "Corner", "tax", "Chance", "Commmunity Chest"]
-    await ctx.send("""
-        ```css
-        # Property Groups
-        [ Purple  ]
-        [ Light-Blue  ]
-        [ Violet  ]
-        [ Orange  ]
-        [ Red ]
-        [ Yellow ]
-        [ Dark-Green ]
-        [ Dark-Blue ]
-        < Utilities >
-        < Railroads >
-        < Corner >
-        < Tax >
-        < Chance > 
-        < CommunityChest >
-          ```
-          """)
-    return valid_groups
-
-
-@bot.command(name="roll")
-async def roll_dice(ctx, both: bool):
-    results = []
-    if both != True:
-        outcome = random.randint(1, 6)
-        await ctx.send(
-            "> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(outcome) + "** \n> dice = " + str(outcome))
-    else:
-        outcome1 = random.randint(1, 6)
-        outcome2 = random.randint(1, 6)
-        total_outcome = outcome1 + outcome2
-        await ctx.send(
-            "> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(total_outcome) + "** \n> dice = " + str(
-                outcome1) + ", " + str(outcome2))
-
-
-def intake_dice(multiplier, poly_count):
-    results = []
-    multiplier = int(multiplier.group(1))
-    poly_count = int(poly_count.group(1))
-    for roll in range(multiplier):
-        print(r"rolling")
-        results.append(random.randrange(1, poly_count))
-    return results
-
-
-@bot.command(name="r")
-# add ability to re-roll 1's
-# add ability to re-roll misses, need to take parameters for that
-# force re-roll successes
-# specify target number for re-rolls etc
-async def roll_polynomial(ctx, dice_roll):
-    results = []
-    multiplier = re.search("(^\d*)", dice_roll)
-    if multiplier is not None:
-        print(multiplier.group(1))
-        try:
-            multiplier = int(multiplier.group(1))
-        except ValueError:
-            multiplier = 0
-    else:
-        multiplier = 1
-    dice_form = re.findall("\d*(d)", dice_roll)
-    if len(dice_form) > 1:
-        for group in dice_form:
-            print("dice_form search: ")
-            print(re.search("([+|-]\d*d\d)", dice_roll))
-            results.append(intake_dice(re.search("[+|-](\d*)d\d", dice_roll), re.search("[+|-]\d*d(\d*)", dice_roll)))
-    elif len(dice_form) == 1:
-        dice_form = str(re.search("\d*(d)", dice_roll))
-    else:
-        await ctx.send(
-            "Sorry, rolls need to be formatted #**d**#+/-# where # is a number and the first, last and plus sign are optional.")
-    poly_count = re.search("[d](\d*)", dice_roll)
-    if poly_count is not None:
-        print("poly_count search: ")
-        print(poly_count.group(1))
-        try:
-            poly_count = int(poly_count.group(1))
-        except ValueError:
-            poly_count = 20
-    add_sign = re.search("[d](?:\d*)([+|-])", dice_roll)
-    bonus_text = "no bonuses, just "
-    if add_sign is not None:
-        add_sign = add_sign.group(1)
-        if add_sign == "+":
-            bonus_text = "a bonus of "
-        else:
-            bonus_text = "a debuff of "
-    else:
-        add_sign = ""
-    modifier = 0
-    bonus = re.search("[+|-](\d*)(?![d])", dice_roll)
-    if bonus is not None or "":
-        print("bonus group 1: ")
-        print(bonus.group(1))
-        bonus = bonus.group(1)
-        bonuses = re.findall("([+|-]\d*)(?![d])", dice_roll)
-        if len(list(bonuses)) > 1:
-            print("bonus list length:")
-            print(len(list(bonuses)))
-            print(bonuses)
-            bonus = 0
-            for mod in bonuses:
-                print("mod: ", mod)
-                sign = mod[:1]
-                if mod[1:] == "":
-                    size = 0
-                else:
-                    size = int(mod[1:])
-                if sign == "+":
-                    modifier = modifier + size
-                elif sign == "-":
-                    modifier = modifier - size
-        print("bonus: ", bonus, " modifier: ", modifier)
-        bonus = bonus + modifier
-        print("bonus: ", bonus, "modifier: ", modifier)
-    else:
-        print("bonus == none condition triggered")
-        bonus = 0
-    print("The variables are: ")
-    print(multiplier)
-    print(poly_count)
-    print(add_sign)
-    print(bonus)
-    score = 0
-    if results != "":
-        results = list(itertools.chain.from_iterable(results))
-        print(results)
-    for roll in range(multiplier):
-        print("rolling")
-        results.append(random.randrange(1, poly_count))
-        print(results)
-    if add_sign == "+":
-        score = sum(results) + bonus
-        print("score: ", score)
-    elif add_sign == "-":
-        score = sum(results) - bonus
-        print("score:", score)
-    else:
-        score = sum(results)
-        print("score: ", score)
-    await ctx.send("> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(score) + "** \n> " + str(
-        results) + " \n> :muscle: With " + bonus_text + add_sign + str(bonus))
-
-
-@bot.command(name="groups_verbose")
-async def group_list_verbose(ctx):
-    await ctx.send("""
-        ```css
-        #Property-Groups
-        [ Purple  ]
-            *  Mediterranean Ave
-            *  Baltic Ave
-        [ Light-Blue ]
-            * Oriental Ave
-            * Vermont Ave
-            * Connecticut Ave
-        [ Violet  ]
-            * St Charles Place
-            * States Ave
-            * Virginia Ave
-        [ Orange  ]
-            * St James Place
-            * Tennessee Ave
-            * New York Ave
-        [ Red ]
-            * Kentucky Ave
-            * Indiana Ave
-            * Illinois Ave
-        [ Yellow ]
-            * Atlantic Ave
-            * Ventnor Ave
-            * Marvin Gardens
-        [ Dark-Green ]
-            * Pacific Ave
-            * North Carolina Ave
-            * Pennsylvania Ave
-        [ Dark-Blue ]
-            * Park Place
-            * Boardwalk
-        [ Utilities ]
-            * Electric Company
-            * Water Works
-        [ Railroads ]
-            * Reading Railroad
-            * Pennsylvania Railroad
-            * B & O Railroad
-            * Short Line Railroad
-        [ Corner ]
-            * Go!
-            * Jail
-            * Free Parking
-            * Go To Jail
-        [ Tax ]
-            * Income Tax
-            * Luxury Tax
-        [ Chance ] 
-            * Chance Card
-        [ Community Chest ]
-            * Community Chest Card
-          ```
-          """)
-
-
-@bot.command(name="group_list")
-async def mono_list_properties(ctx, group):
-    valid_groups = ["Purple", "Light-Blue", "Violet", "Orange", "Red", "Yellow", "Dark-Green", "Dark-Blue", "Utilities",
-                    "Railroads", "Corner", "tax", "Chance", "Commmunity Chest"]
-    if group not in valid_groups:
-        print("That's not a valid Monopoly Group, please invoke the valid_groups command.")
-    print("Displaying all properties in the ", group, "group/s.")
-    with open("monopoly_props.json") as source:
-        mono_data = json.load(source)
-    prop_lists = mono_data["Properties"]
-    for prop, estate in prop_lists.items():
-        print(estate["Group"])
-        print(group)
-        if estate['Group'] == group:
-            embedded = discord.Embed(title=estate["Name"], description=["Name"], color=discord.Colour.gold)
-            embedded.add_field(name="Price", value=estate["Price"], inline=False)
-            embedded.add_field(name="Rent", value=estate["Rent"], inline=True)
-            embedded.add_field(name="Position:", value=estate["Position"], inline=True)
-            if estate["Group"] == "Railroad":
-                embedded.add_field(name="2 owned:", value=estate["2 owned"], inline=True)
-                embedded.add_field(name="2 owned:", value=estate["3 owned"], inline=True)
-                embedded.add_field(name="2 owned:", value=estate["4 owned"], inline=True)
-            elif estate["Group"] == "Railroad":
-                embedded.add_field(name="Both owned:", value=estate["Both owned"], inline=True)
-            else:
-                embedded.add_field(name="1 House:", value=estate["2 owned"], inline=True)
-                embedded.add_field(name="2 Houses:", value=estate["3 owned"], inline=True)
-                embedded.add_field(name="3 Houses:", value=estate["4 owned"], inline=True)
-                embedded.add_field(name="4 Houses:", value=estate["4 owned"], inline=True)
-                embedded.add_field(name="Hotel:", value=estate["Hotel"], inline=True)
-            await ctx.send(embed=embedded)
+#@bot.command(name="joke")
+#async def random_joke(ctx):
+#    url = "https://joke3.p.rapidapi.com/v1/joke"
+#
+#    querystring = {"nsfw": "true"}
+#
+#    headers = {
+#        'x-rapidapi-host': "joke3.p.rapidapi.com",
+#        'x-rapidapi-key': RAPID_API
+#    }
+#
+#    response = requests.request("GET", url, headers=headers, params=querystring)
+#
+#    print(response.text)
+#
+#
+#@bot.command(name="valid_groups")
+#async def mono_list_groups(ctx):
+#    valid_groups = ["Purple", "Light-Blue", "Violet", "Orange", "Red", "Yellow", "Dark-Green", "Dark-Blue", "Utilities",
+#                    "Railroads", "Corner", "tax", "Chance", "Commmunity Chest"]
+#    await ctx.send("""
+#        ```css
+#        # Property Groups
+#        [ Purple  ]
+#        [ Light-Blue  ]
+#        [ Violet  ]
+#        [ Orange  ]
+#        [ Red ]
+#        [ Yellow ]
+#        [ Dark-Green ]
+#        [ Dark-Blue ]
+#        < Utilities >
+#        < Railroads >
+#        < Corner >
+#        < Tax >
+#        < Chance >
+#        < CommunityChest >
+#          ```
+#          """)
+#    return valid_groups
+#
+#
+#@bot.command(name="roll")
+#async def roll_dice(ctx, both: bool):
+#    results = []
+#    if not both:
+#        outcome = random.randint(1, 6)
+#        await ctx.send(
+#            "> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(outcome) + "** \n> dice = " + str(outcome))
+#    else:
+#        outcome1 = random.randint(1, 6)
+#        outcome2 = random.randint(1, 6)
+#        total_outcome = outcome1 + outcome2
+#        await ctx.send(
+#            "> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(total_outcome) + "** \n> dice = " + str(
+#                outcome1) + ", " + str(outcome2))
+#
+#
+#def intake_dice(multiplier, poly_count):
+#    results = []
+#    multiplier = int(multiplier.group(1))
+#    poly_count = int(poly_count.group(1))
+#    for roll in range(multiplier):
+#        print(r"rolling")
+#        results.append(random.randrange(1, poly_count))
+#    return results
+#
+#
+#@bot.command(name="r")
+## add ability to re-roll 1's
+## add ability to re-roll misses, need to take parameters for that
+## force re-roll successes
+## specify target number for re-rolls etc
+#async def roll_polynomial(ctx, dice_roll):
+#    results = []
+#    multiplier = re.search("(^\d*)", dice_roll)
+#    if multiplier is not None:
+#        print(multiplier.group(1))
+#        try:
+#            multiplier = int(multiplier.group(1))
+#        except ValueError:
+#            multiplier = 1
+#    else:
+#        multiplier = 1
+#    dice_form = re.findall("\d*(d)", dice_roll)
+#    if len(dice_form) > 1:
+#        for group in dice_form:
+#            print("dice_form search: ")
+#            print(re.search("([+|-]\d*d\d)", dice_roll))
+#            results.append(intake_dice(re.search("[+|-](\d*)d\d", dice_roll), re.search("[+|-]\d*d(\d*)", dice_roll)))
+#    elif len(dice_form) == 1:
+#        dice_form = str(re.search("\d*(d)", dice_roll))
+#    else:
+#        await ctx.send(
+#            "Sorry, rolls need to be formatted #**d**#+/-# where # is a number and the first, last and plus sign are optional.")
+#    poly_count = re.search("[d](\d*)", dice_roll)
+#    if poly_count is not None:
+#        print("poly_count search: ")
+#        print(poly_count.group(1))
+#        try:
+#            poly_count = int(poly_count.group(1))
+#        except ValueError:
+#            poly_count = 20
+#    add_sign = re.search("[d](?:\d*)([+|-])", dice_roll)
+#    bonus_text = "no bonuses, just "
+#    if add_sign is not None:
+#        add_sign = add_sign.group(1)
+#        if add_sign == "+":
+#            bonus_text = "a bonus of "
+#        else:
+#            bonus_text = "a debuff of "
+#    else:
+#        add_sign = ""
+#    modifier = 0
+#    bonus = re.search("[+|-](\d*)(?![d])", dice_roll)
+#    if bonus is not None or "":
+#        print("bonus group 1: ")
+#        print(bonus.group(1))
+#        bonus = bonus.group(1)
+#        bonuses = re.findall("([+|-]\d*)(?![d])", dice_roll)
+#        if len(list(bonuses)) > 1:
+#            print("bonus list length:")
+#            print(len(list(bonuses)))
+#            print(bonuses)
+#            bonus = 0
+#            for mod in bonuses:
+#                print("mod: ", mod)
+#                sign = mod[:1]
+#                if mod[1:] == "":
+#                    size = 0
+#                else:
+#                    size = int(mod[1:])
+#                if sign == "+":
+#                    modifier = modifier + size
+#                elif sign == "-":
+#                    modifier = modifier - size
+#        print("bonus: ", bonus, " modifier: ", modifier)
+#        if bonus is None:
+#            bonus = 0
+#        elif isinstance(bonus, str):
+#            try:
+#                bonus = int(bonus)
+#            except ValueError:
+#                bonus = 0
+#        bonus = bonus + modifier
+#        print("bonus: ", bonus, "modifier: ", modifier)
+#    else:
+#        print("bonus == none condition triggered")
+#        bonus = 0
+#    print("The variables are: ")
+#    if multiplier is None:
+#        multiplier = 1
+#    elif multiplier < 1:
+#        multiplier = 1
+#    print(multiplier)
+#    print(poly_count)
+#    print(add_sign)
+#    print(bonus)
+#    #if results != "":
+#    #    results = list(itertools.chain.from_iterable(results))
+#    #    print(results)
+#    for roll in range(multiplier):
+#        print(range(multiplier))
+#        print("rolling")
+#        results.append(random.randrange(1, poly_count))
+#        print(results)
+#    if add_sign == "+":
+#        score = sum(results)
+#        score = score + bonus
+#        ## when this blows up refer to this url and the += for loop
+#        ## https://www.techiedelight.com/flatten-list-of-lists-python/
+#        ## just avoid using itertools
+#        print("score: ", score)
+#    elif add_sign == "-":
+#        score = sum(results)
+#        score = score - bonus
+#        print("score:", score)
+#    else:
+#        score = sum(results)
+#        print("score: ", score)
+#    await ctx.send("> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(score) + "** \n> " + str(
+#        results) + " \n> :muscle: With " + bonus_text + add_sign + str(bonus))
+#
+#
+#@bot.command(name="groups_verbose")
+#async def group_list_verbose(ctx):
+#    await ctx.send("""
+#        ```css
+#        #Property-Groups
+#        [ Purple  ]
+#            *  Mediterranean Ave
+#            *  Baltic Ave
+#        [ Light-Blue ]
+#            * Oriental Ave
+#            * Vermont Ave
+#            * Connecticut Ave
+#        [ Violet  ]
+#            * St Charles Place
+#            * States Ave
+#            * Virginia Ave
+#        [ Orange  ]
+#            * St James Place
+#            * Tennessee Ave
+#            * New York Ave
+#        [ Red ]
+#            * Kentucky Ave
+#            * Indiana Ave
+#            * Illinois Ave
+#        [ Yellow ]
+#            * Atlantic Ave
+#            * Ventnor Ave
+#            * Marvin Gardens
+#        [ Dark-Green ]
+#            * Pacific Ave
+#            * North Carolina Ave
+#            * Pennsylvania Ave
+#        [ Dark-Blue ]
+#            * Park Place
+#            * Boardwalk
+#        [ Utilities ]
+#            * Electric Company
+#            * Water Works
+#        [ Railroads ]
+#            * Reading Railroad
+#            * Pennsylvania Railroad
+#            * B & O Railroad
+#            * Short Line Railroad
+#        [ Corner ]
+#            * Go!
+#            * Jail
+#            * Free Parking
+#            * Go To Jail
+#        [ Tax ]
+#            * Income Tax
+#            * Luxury Tax
+#        [ Chance ]
+#            * Chance Card
+#        [ Community Chest ]
+#            * Community Chest Card
+#          ```
+#          """)
+#
+#
+#@bot.command(name="group_list")
+#async def mono_list_properties(ctx, group):
+#    valid_groups = ["Purple", "Light-Blue", "Violet", "Orange", "Red", "Yellow", "Dark-Green", "Dark-Blue", "Utilities",
+#                    "Railroads", "Corner", "tax", "Chance", "Commmunity Chest"]
+#    if group not in valid_groups:
+#        print("That's not a valid Monopoly Group, please invoke the valid_groups command.")
+#    print("Displaying all properties in the ", group, "group/s.")
+#    with open("monopoly_props.json") as source:
+#        mono_data = json.load(source)
+#    prop_lists = mono_data["Properties"]
+#    for prop, estate in prop_lists.items():
+#        print(estate["Group"])
+#        print(group)
+#        if estate['Group'] == group:
+#            embedded = discord.Embed(title=estate["Name"], description=["Name"], color=discord.Colour.gold)
+#            embedded.add_field(name="Price", value=estate["Price"], inline=False)
+#            embedded.add_field(name="Rent", value=estate["Rent"], inline=True)
+#            embedded.add_field(name="Position:", value=estate["Position"], inline=True)
+#            if estate["Group"] == "Railroad":
+#                embedded.add_field(name="2 owned:", value=estate["2 owned"], inline=True)
+#                embedded.add_field(name="2 owned:", value=estate["3 owned"], inline=True)
+#                embedded.add_field(name="2 owned:", value=estate["4 owned"], inline=True)
+#            elif estate["Group"] == "Railroad":
+#                embedded.add_field(name="Both owned:", value=estate["Both owned"], inline=True)
+#            else:
+#                embedded.add_field(name="1 House:", value=estate["2 owned"], inline=True)
+#                embedded.add_field(name="2 Houses:", value=estate["3 owned"], inline=True)
+#                embedded.add_field(name="3 Houses:", value=estate["4 owned"], inline=True)
+#                embedded.add_field(name="4 Houses:", value=estate["4 owned"], inline=True)
+#                embedded.add_field(name="Hotel:", value=estate["Hotel"], inline=True)
+#            await ctx.send(embed=embedded)
 
 
 logger = logging.getLogger('discord')
