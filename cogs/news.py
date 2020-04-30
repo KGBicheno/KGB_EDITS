@@ -66,6 +66,7 @@ class News(commands.Cog):
         if verbosity == "-c":
             if destination == "channel":
                 await ctx.send(econ_100)
+
             else:
                 await ctx.author.create_dm()
                 await ctx.author.send(econ_100)
@@ -82,6 +83,7 @@ class News(commands.Cog):
     @commands.command()
     async def qfes_pull(self, ctx):
         """Periodically checks the QFES Alerts and refills the container file if new alerts exist"""
+        #Add this feed as well https://newsroom.psba.qld.gov.au/RSS/0
         ctx.send("Pull-down loop initiating [QFES|RSS-feed|term-out:on]")
         while ctx.bot.is_ready():
             self.qfes_spool = 1
@@ -106,24 +108,16 @@ class News(commands.Cog):
                     print("link: ", article_content)
                     article_category = get_feed.category['term']
                     print("category: ", article_category)
-                    article_geolocation = get_feed.updated.next_sibling.string
-                    print("description: ", article_geolocation)
                     article_published = get_feed.updated.string
                     print("published: ", article_published)
                     article_updated = get_feed.updated.string
                     print("updated ", article_updated)
-                    get_feed.updated.next_sibling.text = article_geolocation
-                    spark_dict.get("items").append({"title": article_title,
-                                                   "article_link": article_category,
-                                                   "article_category": article_category,
-                                                   "article_id": article_id,
-                                                   "article_published": article_published,
-                                                   "articlegit add f_pic": article_geolocation
-                                                   })
+                    spark_dict.get("items").append(
+                        dict(title=article_title, article_content=article_content, article_category=article_category,
+                             article_id=article_id, article_published=article_published))
                     with open('../fire_alerts.json', "w") as data:
                         json.dump(spark_dict, data, indent=2)
                     print("Last QFES refill occurred at:", datetime.now().isoformat())
-        await ctx.send(".")
         await asyncio.sleep(360)
 
     @commands.command()
@@ -168,7 +162,6 @@ class News(commands.Cog):
                     with open('../NRM.json', "w") as data:
                         json.dump(news_dict, data, indent=2)
                     print("Last NRM refill occurred at:", datetime.now().isoformat())
-                    await ctx.send(".")
                     await asyncio.sleep(360)
 
 
@@ -207,7 +200,6 @@ class News(commands.Cog):
                 print(bom_alerts)
             with open("bom_alerts.json", "w") as data:
                 json.dump(bom_alerts, data, indent=2)
-            await ctx.send(".")
             await asyncio.sleep(360)
 
     @commands.command()

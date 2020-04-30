@@ -1,7 +1,7 @@
 {
-  "condition": "disaster",
-  "situation": "fire",
-  "alerts": [
+  "source": "nrm_overwatch_rss",
+  "method": "bot_pulldown",
+  "items": [
     {
       "alert_id": "QF6-20-036046",
       "category": "Information",
