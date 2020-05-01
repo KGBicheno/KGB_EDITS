@@ -7,10 +7,11 @@ from pprint import pprint
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from discord.ext import commands
+import random
 
 
 class News(commands.Cog):
-    """A module containing the morale-boosting functions required during during long-term isolation disasters"""
+    """A module containing the morale-boosting functions required during long-term isolation disasters"""
     def __init__(self, bot):
         self.bot = bot
         self.purpose = "news"
@@ -30,8 +31,8 @@ class News(commands.Cog):
     @commands.command()
     async def news_cog_status(self, ctx):
         """Returns the current build-status of the cog"""
-        await ctx.send("News Module Status: Under Construction")
-        return False
+        ratio = random.randrange(35, 60)
+        await ctx.send("The news module is building at " + str(ratio) + "per cent.")
 
     @commands.command()
     async def economy(self, ctx, verbosity, destination):
@@ -66,7 +67,6 @@ class News(commands.Cog):
         if verbosity == "-c":
             if destination == "channel":
                 await ctx.send(econ_100)
-
             else:
                 await ctx.author.create_dm()
                 await ctx.author.send(econ_100)
@@ -118,7 +118,7 @@ class News(commands.Cog):
                     with open('../fire_alerts.json', "w") as data:
                         json.dump(spark_dict, data, indent=2)
                     print("Last QFES refill occurred at:", datetime.now().isoformat())
-        await asyncio.sleep(360)
+                    await asyncio.sleep(360)
 
     @commands.command()
     async def nrm_pull(self, ctx):
@@ -201,6 +201,17 @@ class News(commands.Cog):
             with open("bom_alerts.json", "w") as data:
                 json.dump(bom_alerts, data, indent=2)
             await asyncio.sleep(360)
+
+    @commands.command()
+    async def style_guide(self, ctx, search_term):
+        with open('NCA_style_guide.json', 'r') as reference:
+            guide = json.load(reference)
+        pprint(guide)
+        for entry, answer in guide:
+            if search_term == entry:
+                result = ("> Entry: " + entry +
+                          "> Usage: " + answer)
+                await ctx.send(result)
 
     @commands.command()
     async def corrupt_data(self, ctx):

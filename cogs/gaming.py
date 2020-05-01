@@ -7,13 +7,14 @@ class Gaming(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.purpose = "morale"
-        self.critical = False
+        self.critical = True
 
     @commands.command()
-    async def game_cog_status(self, ctx):
+    async def gaming_cog_status(self):
         """Returns the current build-status of the cog"""
-        await ctx.send("Gaming Module Status: Under Construction")
-        return False
+        ratio = random.randrange(35, 60)
+        lieutenant = "The morale module is building at " + str(ratio) + "per cent."
+        return lieutenant, ratio
 
     @commands.command()
     async def dice(self, ctx , both: bool):

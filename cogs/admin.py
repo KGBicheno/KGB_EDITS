@@ -9,6 +9,16 @@ class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.purpose = "admin"
+        self.critical = True
+
+    @commands.command()
+    async def admin_cog_status(self):
+        """Returns the current build-status of the cog"""
+        ratio = random.randrange(35, 60)
+        lieutenant = "The admin module is building at " + str(ratio) + "per cent."
+        return lieutenant, ratio
+
+
 
     @commands.command()
     async def clear_bot_messages(self, ctx, messages):

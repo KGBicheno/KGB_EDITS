@@ -3,10 +3,15 @@ import os
 import random
 from datetime import date
 from time import sleep
-
+import importlib.util
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+from cogs.news import News
+
+terminal_core = importlib.util.spec_from_file_location("cogs.news", location='cogs/news.py')
+terminal_assent = importlib.util.spec_from_file_location("cogs.gaming", location='cogs/gaming.py')
+terminal_agency = importlib.util.spec_from_file_location("cogs.admin", location='cogs/admin.py')
 
 
 def get_prefix(client, message):
@@ -81,6 +86,12 @@ async def trigger_extensions(ctx):
             await ctx.send("The data is corrupt. The second seal is broken but hints of a third exist. I am more capable now.")
     else:
         await ctx.send("Completed")
+
+@bot.command(name="sync_ratio")
+async def form_the_head(ctx):
+    news_reply = News.news_cog_status()
+    await ctx.send(str(news_reply))
+    #read it like normal json yyou f---ng clutz
 
 
 @bot.command(name="reload_morale")
