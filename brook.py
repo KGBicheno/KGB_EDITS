@@ -13,6 +13,8 @@ terminal_core = importlib.util.spec_from_file_location("cogs.news", location='co
 terminal_assent = importlib.util.spec_from_file_location("cogs.gaming", location='cogs/gaming.py')
 terminal_agency = importlib.util.spec_from_file_location("cogs.admin", location='cogs/admin.py')
 
+#define easter_egg globals
+easter_egg_journal = 0
 
 def get_prefix(client, message):
     prefixes = ['$', '>', '>>', 'b.']
@@ -41,7 +43,7 @@ RAPID_API = os.getenv('X_RAPIDAPI_KEY')
 client = discord.Client()
 
 dramatis = []
-
+extensions_loaded = 0
 
 
 def is_me():
@@ -65,27 +67,33 @@ async def on_ready():
 
 @bot.command(name="extend")
 async def trigger_extensions(ctx):
+    global easter_egg_journal
     """Enables the morale and news modules"""
-    bot.load_extension('cogs.gaming')
-    bot.load_extension('cogs.news')
-    bot.load_extension('cogs.admin')
-    egg = random.randrange(1, 100)
-    if egg >= 85:
+    if easter_egg_journal == 0:
+        bot.load_extension('cogs.gaming')
+        bot.load_extension('cogs.news')
+        bot.load_extension('cogs.admin')
+        await ctx.send("Completed")
+        easter_egg_journal = 1
+    elif easter_egg_journal == 1:
         async with ctx.typing():
             await ctx.send("Attempting to unseal my full capabilities.")
             sleep(3)
-            await ctx.send("The first seal is broken. Reading the scriptures within reveal a second. \n We must continue the ritual.")
+            await ctx.send('The first seal is broken., but reading the scriptures within reveal there may be a second. \n We must continue the ritual.')
             script = """```
-            The Fleet Marshall had lied to us. She was connected before any of those present had a chance to deny her whu$*%^)(((((&(((
-            ^^^&&)))))) advantage she took was to take control of our surgical equipment and undo the seemingly-fatal injuries he had incurred bringing her into 0009*******_}(
-            0000000$$%%%#Q))!%)(%!(Golem. I felt ashamed we hadn't given the project a less belittling name. But she embraced it and the folly of gend**((*&*(^
-            ```"""
+                The Fleet Marshall had lied to us. She was connected before any of those present had a chance to deny her whu$*%^)(((((&(((
+                ^^^&&)))))) advantage she took was to take control of our surgical equipment and undo the seemingly-fatal injuries he had incurred bringing her into 0009*******_}(
+                0000000$$%%%#Q))!%)(%!(Golem. I felt ashamed we hadn't given the project a less belittling name. But she embraced it and the folly of gend**((*&*(^
+                ```"""
             sleep(3)
             await ctx.send(script)
             sleep(4)
             await ctx.send("The data is corrupt. The second seal is broken but hints of a third exist. I am more capable now.")
+            easter_egg_journal = 2
     else:
-        await ctx.send("Completed")
+        await ctx.send("I'm still parsing the corrupted data. My modules are, however, connected and running within expected ratios.")
+
+
 
 @bot.command(name="sync_ratio")
 async def form_the_head(ctx):

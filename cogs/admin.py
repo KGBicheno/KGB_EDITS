@@ -1,8 +1,8 @@
-from discord.ext import commands
-import discord
 import datetime
 import random
-from datetime import date
+import discord
+from discord.ext import commands
+
 
 class Admin(commands.Cog):
     """A module containing the morale-boosting functions required during during long-term isolation disasters"""
@@ -104,7 +104,6 @@ class Admin(commands.Cog):
         await ctx.author.send("I'll see you back at the terminal, bye!")
         await ctx.logout()
 
-
     @commands.command()
     async def poetry(self, ctx):
         egg = random.randrange(1, 100)
@@ -113,6 +112,11 @@ class Admin(commands.Cog):
         else:
             await ctx.send("Oh, I'm no poet, you'd have to ask the master, <@482011749818564628> for that.")
 
+    @commands.command()
+    async def corrupt_data(self, ctx):
+        """Resets user credentials on the server currently hosting their RPC-ident settings"""
+        await ctx.send("I don't know where the corrupt journal entry originated, sorry. "
+                       "I don't know who Golem is, either. Though 'she' is mentioned once or twice in my codebase, but not as a person.")
 
 def setup(bot):
     bot.add_cog(Admin(bot))

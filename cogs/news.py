@@ -169,7 +169,7 @@ class News(commands.Cog):
     @commands.command()
     async def bom_pull(self, ctx):
         """Periodically checks for new BOM alerts and updates the container file if they exist"""
-        ctx.send("Pull-down loop initiated [BOM|RSS-feed|headers:explicit|term-out:on]")
+        await ctx.send("Pull-down loop initiated [BOM|RSS-feed|headers:explicit|term-out:on]")
         klaxon = []
         while ctx.bot.is_ready():
             self.bom_spool = 1
@@ -203,21 +203,26 @@ class News(commands.Cog):
             await asyncio.sleep(360)
 
     @commands.command()
-    async def style_guide(self, ctx, search_term):
-        with open('NCA_style_guide.json', 'r') as reference:
+    async def style_guide(self, ctx, search_term=None):
+        """for a list of terms covered by the guide, invoke the style_list command"""
+        if search_term is None:
+            await ctx.send("> The style_guide command allows you to search the News Corp style guide for specific word usages.\n"
+                           "> Invoke the command and then follow it with the word you're looking for."
+                           """
+                            ```css
+                            [For example:] $style guide about 
+                           ```""")
+        else:
+            assert isinstance(search_term, str)
+        with open('NCA_style_guide.json', 'r', encoding='UTF-8') as reference:
             guide = json.load(reference)
-        pprint(guide)
-        for entry, answer in guide:
-            if search_term == entry:
-                result = ("> Entry: " + entry +
-                          "> Usage: " + answer)
-                await ctx.send(result)
+            reference = guide['entries']
+        for x in reference:
+            for entry, answer in x.items():
+               if  entry == search_term:
+                    result = "Entry: " + entry + "  Ruling: " + answer
+                    await ctx.send(result)
 
-    @commands.command()
-    async def corrupt_data(self, ctx):
-        """Resets user credentials on the server currently hosting their RPC-ident settings"""
-        await ctx.send("I don't know where the corrupt journal entry originated, sorry. "
-                       "I don't know who Golem is, either. Though 'she' is mentioned once or twice in my codebase, but not as a person.")
 
 def setup(bot):
     bot.add_cog(News(bot))
