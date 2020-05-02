@@ -32,7 +32,7 @@ class News(commands.Cog):
     async def news_cog_status(self, ctx):
         """Returns the current build-status of the cog"""
         ratio = random.randrange(35, 60)
-        await ctx.send("The news module is building at " + str(ratio) + "per cent.")
+        await ctx.send("The news module is building at " + str(ratio) + " per cent.")
 
     @commands.command()
     async def economy(self, ctx, verbosity, destination):

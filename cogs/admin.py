@@ -12,11 +12,10 @@ class Admin(commands.Cog):
         self.critical = True
 
     @commands.command()
-    async def admin_cog_status(self):
+    async def admin_cog_status(self, ctx):
         """Returns the current build-status of the cog"""
         ratio = random.randrange(35, 60)
-        lieutenant = "The admin module is building at " + str(ratio) + "per cent."
-        return lieutenant, ratio
+        await ctx.send("The control module is building at " + str(ratio) + " per cent.")
 
 
 

@@ -8,6 +8,8 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from cogs.news import News
+from cogs.admin import Admin
+from cogs.gaming import Gaming
 
 terminal_core = importlib.util.spec_from_file_location("cogs.news", location='cogs/news.py')
 terminal_assent = importlib.util.spec_from_file_location("cogs.gaming", location='cogs/gaming.py')
@@ -15,6 +17,7 @@ terminal_agency = importlib.util.spec_from_file_location("cogs.admin", location=
 
 #define easter_egg globals
 easter_egg_journal = 0
+easter_egg_ratio = 0
 
 def get_prefix(client, message):
     prefixes = ['$', '>', '>>', 'b.']
@@ -97,9 +100,18 @@ async def trigger_extensions(ctx):
 
 @bot.command(name="sync_ratio")
 async def form_the_head(ctx):
-    news_reply = News.news_cog_status()
-    await ctx.send(str(news_reply))
-    #read it like normal json yyou f---ng clutz
+    global easter_egg_ratio
+    await News.news_cog_status(terminal_core, ctx)
+    sleep(2)
+    await Admin.admin_cog_status(terminal_agency, ctx)
+    sleep(2)
+    await Gaming.gaming_cog_status(terminal_assent, ctx)
+    if easter_egg_ratio == 1:
+        sleep(3)
+        await ctx.send("...")
+        sleep(1)
+        await ctx.send("I wonder if Director Bicheno is ever proud of me — or am I just numbers to her?")
+    easter_egg_ratio += 1
 
 
 @bot.command(name="reload_morale")

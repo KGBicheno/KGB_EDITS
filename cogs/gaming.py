@@ -10,11 +10,10 @@ class Gaming(commands.Cog):
         self.critical = True
 
     @commands.command()
-    async def gaming_cog_status(self):
+    async def gaming_cog_status(self, ctx):
         """Returns the current build-status of the cog"""
         ratio = random.randrange(35, 60)
-        lieutenant = "The morale module is building at " + str(ratio) + "per cent."
-        return lieutenant, ratio
+        await ctx.send("The assent module is building at " + str(ratio) + " per cent.")
 
     @commands.command()
     async def dice(self, ctx , both: bool):
