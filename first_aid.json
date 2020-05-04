@@ -1,0 +1,967 @@
+{
+  "content": "Emergency procedures",
+  "source": "St John's Ambulance",
+  "method": "Copyright approval",
+  "items": [
+    {
+      "situation": "COVID-19",
+      "language": "English",
+      "filetype": "pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/StJohnfactsheet-COVID-19.pdf"
+    },
+    {
+      "situation": "Poster",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/DRSABCDA4_poster.pdf"
+    },
+    {
+      "situation": "Allergic",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_allergic.pdf"
+    },
+    {
+      "situation": "Asthma",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_asthma.pdf"
+    },
+    {
+      "situation": "Bites table",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_bites_table.pdf"
+    },
+    {
+      "situation": "Bleeding",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_bleeding.pdf"
+    },
+    {
+      "situation": "Burns",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_burns.pdf"
+    },
+    {
+      "situation": "Choking adult or child older than 1 year",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_choking_adult.pdf"
+    },
+    {
+      "situation": "Choking infant younger than 1 year",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_choking_infant.pdf"
+    },
+    {
+      "situation": "Cold",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_cold.pdf"
+    },
+    {
+      "situation": "Concussion",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_concussion.pdf"
+    },
+    {
+      "situation": "Diabetic episode",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_diabetic.pdf"
+    },
+    {
+      "situation": "Electric",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_electric.pdf"
+    },
+    {
+      "situation": "Epileptic episode",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_epileptic.pdf"
+    },
+    {
+      "situation": "Eye",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_eye.pdf"
+    },
+    {
+      "situation": "Febrile convulsions",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_febrileconvulsions.pdf"
+    },
+    {
+      "situation": "Fractures",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_fractures.pdf"
+    },
+    {
+      "situation": "Heat",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_heat.pdf"
+    },
+    {
+      "situation": "Poison",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_poison.pdf"
+    },
+    {
+      "situation": "Shock",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_shock.pdf"
+    },
+    {
+      "situation": "Snake bite",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_snakebite.pdf"
+    },
+    {
+      "situation": "Spider",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_spider.pdf"
+    },
+    {
+      "situation": "Spinal",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_spinal.pdf"
+    },
+    {
+      "situation": "Sprains",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_sprains.pdf"
+    },
+    {
+      "situation": "Stroke",
+      "language": "Arabic",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/arabic/FS_stroke.pdf"
+    },
+    {
+      "situation": "Anaphylaxis",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_anaphylaxis.pdf"
+    },
+    {
+      "situation": "Asthma",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_asthma.pdf"
+    },
+    {
+      "situation": "Bites and stings",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_bitesandstings.pdf"
+    },
+    {
+      "situation": "Bleeding",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_bleeding.pdf"
+    },
+    {
+      "situation": "Burns",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_burns.pdf"
+    },
+    {
+      "situation": "Choking adult or child older than 1 year",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_chokingadult.pdf"
+    },
+    {
+      "situation": "Choking infant younger than 1 year",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_chokinginfant.pdf"
+    },
+    {
+      "situation": "Cold",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_cold.pdf"
+    },
+    {
+      "situation": "Diabetic episode",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_diabetic.pdf"
+    },
+    {
+      "situation": "Drsabcd",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_DRSABCD.pdf"
+    },
+    {
+      "situation": "Electric shock",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_electricshock.pdf"
+    },
+    {
+      "situation": "Epileptic episode",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_epileptic.pdf"
+    },
+    {
+      "situation": "Eyes",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_eyes.pdf"
+    },
+    {
+      "situation": "Fractures",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_fractures.pdf"
+    },
+    {
+      "situation": "Heartattack",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_heartattack.pdf"
+    },
+    {
+      "situation": "Heat",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_heat.pdf"
+    },
+    {
+      "situation": "Infantile convulsions",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_infantileconvulsions.pdf"
+    },
+    {
+      "situation": "Poison",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_poison.pdf"
+    },
+    {
+      "situation": "Shock",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_shock.pdf"
+    },
+    {
+      "situation": "Snake bite",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_snakebite.pdf"
+    },
+    {
+      "situation": "Spider bites",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_spiderbites.pdf"
+    },
+    {
+      "situation": "Spinal injury",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_spinalinjury.pdf"
+    },
+    {
+      "situation": "Sprains and strains",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_sprainsstrains.pdf"
+    },
+    {
+      "situation": "Stroke",
+      "language": "Chinese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/chinese/FSM_stroke.pdf"
+    },
+    {
+      "situation": "Anaphylaxis",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_anaphylaxis.pdf"
+    },
+    {
+      "situation": "Asthma",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_asthma.pdf"
+    },
+    {
+      "situation": "Batbite",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_batbite.pdf"
+    },
+    {
+      "situation": "Bites and stings",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_bitesandstings.pdf"
+    },
+    {
+      "situation": "Burn or scald",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_burnorscald.pdf"
+    },
+    {
+      "situation": "Choking adult or child older than 1 year",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_chokingadult.pdf"
+    },
+    {
+      "situation": "Choking infant younger than 1 year",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_chokinginfant.pdf"
+    },
+    {
+      "situation": "Concussion",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_concussion.pdf"
+    },
+    {
+      "situation": "CPR on an adult",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_CPRadult.pdf"
+    },
+    {
+      "situation": "CPR on infants",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_CPRinfants.pdf"
+    },
+    {
+      "situation": "Diabetes",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_diabetes.pdf"
+    },
+    {
+      "situation": "Drs ABCD Action Plan",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_DRSABCD.pdf"
+    },
+    {
+      "situation": "Electric shock",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_electricshock.pdf"
+    },
+    {
+      "situation": "Epileptic seizure",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_epilepticseizure.pdf"
+    },
+    {
+      "situation": "Fainting",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_fainting.pdf"
+    },
+    {
+      "situation": "Febrile convulsion",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_febrileconvulsion.pdf"
+    },
+    {
+      "situation": "Firstaidkit",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_firstaidkit.pdf"
+    },
+    {
+      "situation": "Fracture and dislocation",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_fractureanddislocation.pdf"
+    },
+    {
+      "situation": "Frostbite",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_frostbite.pdf"
+    },
+    {
+      "situation": "How to handrub",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_handrub.pdf"
+    },
+    {
+      "situation": "Handwashing",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_handwashing.pdf"
+    },
+    {
+      "situation": "Heart attack",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_heartattack.pdf"
+    },
+    {
+      "situation": "Heat-Induced conditions",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_heat-induced.pdf"
+    },
+    {
+      "situation": "Hypothermia",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_hypothermia.pdf"
+    },
+    {
+      "situation": "Nosebleed",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_nosebleed.pdf"
+    },
+    {
+      "situation": "Poisoning",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_poisoning.pdf"
+    },
+    {
+      "situation": "Recovery position",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_recoveryposition.pdf"
+    },
+    {
+      "situation": "Severe bleeding",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_severebleeding.pdf"
+    },
+    {
+      "situation": "Shock",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_shock.pdf"
+    },
+    {
+      "situation": "Smoke or embers in the eyes",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_smokeorembersineyes.pdf"
+    },
+    {
+      "situation": "Snake bite",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_snakebite.pdf"
+    },
+    {
+      "situation": "Spider bites",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_spiderbites.pdf"
+    },
+    {
+      "situation": "Spinal and neck injury",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_spinalandneckinjury.pdf"
+    },
+    {
+      "situation": "Sprains and strains",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_sprainandstrain.pdf"
+    },
+    {
+      "situation": "Stroke",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Factsheets_stroke.pdf"
+    },
+    {
+      "situation": "Home quarantine plan",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/Homequarantineplan.pdf"
+    },
+    {
+      "situation": "COVID-19",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/StJohnfactsheet-COVID-19.pdf"
+    },
+    {
+      "situation": "Working from home",
+      "language": "English",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/english/workingfromhome.pdf"
+    },
+    {
+      "situation": "Poster",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/DRSABCDA4_poster.pdf"
+    },
+    {
+      "situation": "Allergic",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_allergic.pdf"
+    },
+    {
+      "situation": "Asthma",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_asthma.pdf"
+    },
+    {
+      "situation": "Bites table",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_bites_table.pdf"
+    },
+    {
+      "situation": "Bleeding",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_bleeding.pdf"
+    },
+    {
+      "situation": "Burns",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_burns.pdf"
+    },
+    {
+      "situation": "Choking adult or child older than 1 year",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_choking_adult.pdf"
+    },
+    {
+      "situation": "Choking infant younger than 1 year",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_choking_infant.pdf"
+    },
+    {
+      "situation": "Cold",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_cold.pdf"
+    },
+    {
+      "situation": "Concussion",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_concussion.pdf"
+    },
+    {
+      "situation": "Diabetic episode",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_diabetic.pdf"
+    },
+    {
+      "situation": "Electric",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_electric.pdf"
+    },
+    {
+      "situation": "Epileptic episode",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_epileptic.pdf"
+    },
+    {
+      "situation": "Eye",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_eye.pdf"
+    },
+    {
+      "situation": "Febrile convulsions",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_febrileconvulsions.pdf"
+    },
+    {
+      "situation": "Fractures",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_fractures.pdf"
+    },
+    {
+      "situation": "Heat",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_heat.pdf"
+    },
+    {
+      "situation": "Infantcpr",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/Greek/FS_infant_cpr.pdf"
+    },
+    {
+      "situation": "Poison",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_poison.pdf"
+    },
+    {
+      "situation": "Shock",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_shock.pdf"
+    },
+    {
+      "situation": "Snake bite",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_snakebite.pdf"
+    },
+    {
+      "situation": "Spider",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_spider.pdf"
+    },
+    {
+      "situation": "Spinal",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_spinal.pdf"
+    },
+    {
+      "situation": "Sprains",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_sprains.pdf"
+    },
+    {
+      "situation": "Stroke",
+      "language": "Greek",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/greek/FS_stroke.pdf"
+    },
+    {
+      "situation": "Poster",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/DRSABCDA4_poster.pdf"
+    },
+    {
+      "situation": "Allergic",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_allergic.pdf"
+    },
+    {
+      "situation": "Asthma",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_asthma.pdf"
+    },
+    {
+      "situation": "Bites table",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_bites_table.pdf"
+    },
+    {
+      "situation": "Bleeding",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_bleeding.pdf"
+    },
+    {
+      "situation": "Burns",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_burns.pdf"
+    },
+    {
+      "situation": "Choking adult or child older than 1 year",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_choking_adult.pdf"
+    },
+    {
+      "situation": "Choking infant younger than 1 year",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_choking_infant.pdf"
+    },
+    {
+      "situation": "Cold",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_cold.pdf"
+    },
+    {
+      "situation": "Concussion",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_concussion.pdf"
+    },
+    {
+      "situation": "Diabetic episode",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_diabetic.pdf"
+    },
+    {
+      "situation": "Electric",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_electric.pdf"
+    },
+    {
+      "situation": "Epileptic episode",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_epileptic.pdf"
+    },
+    {
+      "situation": "Eye",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_eye.pdf"
+    },
+    {
+      "situation": "Febrile convulsions",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_febrileconvulsions.pdf"
+    },
+    {
+      "situation": "Fractures",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_fractures.pdf"
+    },
+    {
+      "situation": "Heat",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_heat.pdf"
+    },
+    {
+      "situation": "Poison",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_poison.pdf"
+    },
+    {
+      "situation": "Shock",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_shock.pdf"
+    },
+    {
+      "situation": "Snake bite",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_snakebite.pdf"
+    },
+    {
+      "situation": "Spider",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_spider.pdf"
+    },
+    {
+      "situation": "Spinal",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_spinal.pdf"
+    },
+    {
+      "situation": "Sprains",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_sprains.pdf"
+    },
+    {
+      "situation": "Stroke",
+      "language": "Italian",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/italian/FS_stroke.pdf"
+    },
+    {
+      "situation": "Poster",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/DRSABCDA4_poster.pdf"
+    },
+    {
+      "situation": "Allergic",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_allergic.pdf"
+    },
+    {
+      "situation": "Asthma",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_asthma.pdf"
+    },
+    {
+      "situation": "Bites table",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_bites_table.pdf"
+    },
+    {
+      "situation": "Bleeding",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_bleeding.pdf"
+    },
+    {
+      "situation": "Burns",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_burns.pdf"
+    },
+    {
+      "situation": "Choking adult or child older than 1 year",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_choking_adult.pdf"
+    },
+    {
+      "situation": "Choking infant younger than 1 year",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_choking_infant.pdf"
+    },
+    {
+      "situation": "Cold",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_cold.pdf"
+    },
+    {
+      "situation": "Concussion",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_concussion.pdf"
+    },
+    {
+      "situation": "Diabetic episode",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_diabetic.pdf"
+    },
+    {
+      "situation": "Electric",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_electric.pdf"
+    },
+    {
+      "situation": "Epileptic episode",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_epileptic.pdf"
+    },
+    {
+      "situation": "Eye",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_eye.pdf"
+    },
+    {
+      "situation": "Febrile convulsions",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_febrileconvulsions.pdf"
+    },
+    {
+      "situation": "Fractures",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_fractures.pdf"
+    },
+    {
+      "situation": "Heat",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_heat.pdf"
+    },
+    {
+      "situation": "Poison",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_poison.pdf"
+    },
+    {
+      "situation": "Shock",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_shock.pdf"
+    },
+    {
+      "situation": "Snake bite",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_snakebite.pdf"
+    },
+    {
+      "situation": "Spider",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_spider.pdf"
+    },
+    {
+      "situation": "Spinal",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_spinal.pdf"
+    },
+    {
+      "situation": "Sprains",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_sprains.pdf"
+    },
+    {
+      "situation": "Stroke",
+      "language": "Vietnamese",
+      "filetype": ".pdf",
+      "url": "https://stjohn.org.au/first-aid-factsassets/uploads/factsheets/vietnamese/FS_stroke.pdf"
+    }
+  ]
+}
