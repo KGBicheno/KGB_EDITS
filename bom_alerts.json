@@ -1,1 +1,6 @@
-{}
+{
+  "contents": "meteorological warnings",
+  "source": "bom_warnings_rss",
+  "method": "bot_pulldown",
+  "items": []
+}

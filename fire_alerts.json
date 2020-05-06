@@ -1,7 +1,8 @@
 {
-  "condition": "disaster",
-  "situation": "fire",
-  "alerts": [
+  "contents": "fire and flood warnings",
+  "source": "nrm_overwatch_rss",
+  "method": "bot_pulldown",
+  "items": [
     {
       "alert_id": "QF6-20-036046",
       "category": "Information",
