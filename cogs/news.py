@@ -10,8 +10,14 @@ from discord.ext import commands
 import random
 
 
+#TODO Add these APIs (or at least investigate)
+#http://www.bbc.co.uk/developer/technology/apis.html
+#https://www.bloomberg.com/professional/support/api-library/
+#https://developers.google.com/youtube
+
 class News(commands.Cog):
     """A module containing the morale-boosting functions required during long-term isolation disasters"""
+
     def __init__(self, bot):
         self.bot = bot
         self.purpose = "news"

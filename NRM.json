@@ -1,4 +1,5 @@
 {
+  "contents": "news articles",
   "source": "nrm_overwatch_rss",
   "method": "bot_pulldown",
   "items": [
