@@ -3,14 +3,17 @@ import random
 import discord
 from discord.ext import commands
 
-
+#TODO The admin module needs to be more about channel house-cleaning, it needs to control multi-media presence and protocol checking
+#TODO Shift all variable-setting and control functions interacting with brook.conf to here and brook.py
+#TODO Give brook.py a way of loading the admin module automatically
 class Admin(commands.Cog):
-    """A module containing the morale-boosting functions required during during long-term isolation disasters"""
+    """A module containing the variable-setting functions required to ensure Brook operates to the parameters of the disaster"""
     def __init__(self, bot):
         self.bot = bot
         self.purpose = "admin"
         self.critical = True
 
+    #TODO Make $admin_cog_status a class method and have it check brook.conf for corruption at startup
     @commands.command()
     async def admin_cog_status(self, ctx):
         """Returns the current build-status of the cog"""
@@ -18,7 +21,7 @@ class Admin(commands.Cog):
         await ctx.send("The control module is building at " + str(ratio) + " per cent.")
 
 
-
+    #TODO $clear_bot_messages needs to be more easily controlled by admins, especially through brook.conf but also at runtime
     @commands.command()
     async def clear_bot_messages(self, ctx, messages):
         print(type(messages))
@@ -31,6 +34,7 @@ class Admin(commands.Cog):
             await ctx.send("Please enter a number from 1 to 100 inclusive.")
             print("messages were not deleted")
 
+    #TODO $dump_user_list is of questionable value, ask why it's needed and then rebuild it for an output that makes sense for that
     @commands.command()
     async def dump_user_list(self, ctx):
         for member in ctx.guild.members:
@@ -53,7 +57,7 @@ class Admin(commands.Cog):
                 await ctx.author.send(f'user.avatar_url: ' + str(member.avatar_url))
                 await ctx.author.send(f'Is the user a bot? ' + str(member.bot))
 
-
+    #TODO The $promote command can stay but needs to have its contents set in brook.conf for each guild/server it's used in. If not, have a default prompting the admin to set it.
     @commands.command()
     async def promote(self, ctx):
         embed=discord.Embed(title="The Liquid Lounge", url="https://discord.gg/r93QPv", description="When the brass at my company told me to isolate just in case this virus took a society-ending turn, I used some of my old macro-economic models to see how long we'd be in isolation. Like most models, I got a date around the end of the year. I built The Liquid Lounge to be a place where people who were doing their own thing but wanted to stay in regular contact with other people. I hate cabin fever. I hate feeling alone. I hope that this can be a place where people just park their buts while they do their work so that someone always has someone to chat to.", color=0xff9f40)
@@ -64,6 +68,7 @@ class Admin(commands.Cog):
         embed.set_footer(text="Join <#107221703955841024> where socialising is optional — but at least it's an option. ")
         await ctx.send(embed=embed)
 
+    #ToDO $esperanto could be kept in as a template embed for admins to use as a promotional embed
     @commands.command()
     async def esperanto(self, ctx):
         embed = discord.Embed(title="Vocxo de Zamenhof", colour=discord.Colour(0x2ecc71),
@@ -86,6 +91,7 @@ class Admin(commands.Cog):
             content="Welcome to The Liquid Lounge's Esperanto Bar ``` ne krokodilu — krom se vi estas komencanto```",
             embed=embed)
 
+    #TODO $rook or b.rook Should output brook's current status including ping, loaded modules, set/unset variables etc.
     @commands.command()
     async def rook(self, ctx, *arg):
         if arg == "Introduce yourself":
@@ -97,12 +103,15 @@ class Admin(commands.Cog):
         elif arg == "Do you have any secrets?" or "Do you have any easter eggs?":
             await ctx.send("Nothing on purpose, though ")
 
+
+    #TODO Make sure in the $cycle_down command that ctx_logout() works as intended
     @commands.command()
     async def cycle_down(self, ctx):
         await ctx.author.create_dm()
         await ctx.author.send("I'll see you back at the terminal, bye!")
         await ctx.logout()
 
+    #TODO The $poetry command can keep its nod to Rae, but it needs justification for existence
     @commands.command()
     async def poetry(self, ctx):
         egg = random.randrange(1, 100)
@@ -111,6 +120,7 @@ class Admin(commands.Cog):
         else:
             await ctx.send("Oh, I'm no poet, you'd have to ask the master, <@482011749818564628> for that.")
 
+    #TODO The corrupt data function needs to have a practical use - like reporting if there really is corruption in any of the files
     @commands.command()
     async def corrupt_data(self, ctx):
         """Resets user credentials on the server currently hosting their RPC-ident settings"""

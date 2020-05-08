@@ -2,19 +2,21 @@ import random
 import re
 from discord.ext import commands
 
-
+#TODO This Gaming module is a bit far down the list but consideration should be put into calling a limited instance of KGB_AFIRM in emergencies
 class Gaming(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.purpose = "morale"
         self.critical = True
 
+    #TODO $gaming_cog_status would be the perfect place to use the games analysis packages give a situation report to emergency workers
     @commands.command()
     async def gaming_cog_status(self, ctx):
         """Returns the current build-status of the cog"""
         ratio = random.randrange(35, 60)
         await ctx.send("The assent module is building at " + str(ratio) + " per cent.")
 
+    #TODO $dice needs to be brought into a class or extension with the rest of the monopoly functions, consider getting a licence and releasing it
     @commands.command()
     async def dice(self, ctx , both: bool):
         if not both:
@@ -26,11 +28,13 @@ class Gaming(commands.Cog):
             total_outcome = outcome1 + outcome2
             await ctx.send("> :game_die: <@"+str(ctx.author.id)+"> rolled: **" + str(total_outcome) + "** \n> dice = " + str(outcome1) + ", " + str(outcome2))
 
+    #TODO Delete the $hello command in gaming once I have a better structure for quickly checking for proper loads
     @commands.command()
     async def hello(self, ctx):
         print("Hello World!")
         await ctx.send("Hello World!")
 
+    #TODO the $roll function needs to be the basis for the heavy-lifting of multivariate situational computation - fix its architecture asap, the regex needs to be perfect
     @commands.command()
     async def roll(self, ctx, dice_roll):
         await ctx.send("This roller is broken, use <@261302296103747584> instead for now.")
@@ -137,6 +141,8 @@ class Gaming(commands.Cog):
         await ctx.send("> :game_die: <@" + str(ctx.author.id) + "> rolled: **" + str(score) + "** \n> " + str(
             results) + " \n> :muscle: With " + bonus_text + add_sign + str(bonus))
 
+
+    #TODO The $monopoly command is designed to keep an isolated human occupied and sane, tighten up the code
     @commands.command()
     async def monopoly(self, ctx, info):
         if info == "help":

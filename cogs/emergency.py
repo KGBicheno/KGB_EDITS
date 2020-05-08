@@ -5,7 +5,7 @@ import random
 import discord
 from operator import itemgetter
 
-#TODO you know less about Class in Python than IRL, this is preschooler - fix it
+#TODO Build out the Emergency class, there's scope for having subclasses for the different types of disasters
 class Emergency(commands.Cog):
 	"""The key module for handling disaster situations and for providing aid to human actors"""
 
@@ -14,12 +14,16 @@ class Emergency(commands.Cog):
 		self.purpose = "emergency"
 		self.critical = True
 
+	#TODO the $emergency_cog_status command should be a class method and should return the state of emergency level in the server location
 	@commands.command()
 	async def emergency_cog_status(self, ctx):
 		"""Returns the current build-status of the cog"""
 		ratio = random.randrange(35, 60)
 		await ctx.send("The emergency module is building at " + str(ratio) + " per cent.")
 
+	#TODO Fix the web server to the files are always available or find a better CDN - the redirect issue is killing $aid
+	#TODO $aid needs the fuzzy search libraries built in as soon as possible - it's borderline useless right now
+	#TODO You have multilingual versions of the fact sheets, geo-locate or make multilingual usage more streamline - yesterday
 	@commands.command()
 	async def aid(self, ctx, *, arg):
 		"""Searches the St John's Ambulance First Aid guides for anything that matches the text passed into the function"""
