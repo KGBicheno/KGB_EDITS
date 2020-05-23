@@ -31,13 +31,6 @@ def get_prefix(client, message):
 		prefixes = ['>']
 	return commands.when_mentioned_or(*prefixes)(client, message)
 
-@commands.command(name="RestNow")
-@commands.has_guild_permissions(administrator=True)
-async def sleep_now(ctx):
-		"""When the jobs is done, I can be unloaded and returned to memory for the next emergency."""
-		print("Unloading Discord presence, returning to Golem.")
-		await bot.close()
-
 bot = commands.Bot(
 	command_prefix=get_prefix,
 	description='EDITS: Emergency Dispatcher In Traumatic Scenarios | by KGB',
