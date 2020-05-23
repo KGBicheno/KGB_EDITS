@@ -4,7 +4,9 @@
 
 A backup bot designed to dispatch emergency services alerts in cases where human agents are no longer able to do so but internet connectivity has not yet been destroyed.
 
-This file also serves as a roadmap for improvements as obvious shortcomings in each command become apparent in the documentation.
+## How to invite Brook to your server
+
+Navigate to https://discordapp.com/api/oauth2/authorize?client_id=695245576475902002&permissions=8&scope=bot and choose the Guild (Server) to which you'd like to invite Brook.
 
 ## Commands
 

@@ -21,6 +21,18 @@ class Emergency(commands.Cog):
 		ratio = random.randrange(35, 60)
 		await ctx.send("The emergency module is building at " + str(ratio) + " per cent.")
 
+	
+	######################################--PSUEDOCODE-TIME--#####################################################################
+	# accept message as arg
+	# splitmesssage and search tag index json
+	# collect list of files relevant
+	# remove all that don't have ALL tags
+	# if tag in filename, consider pursuasive, if not, ask follow up
+	# present main result with 2-4 possible other options
+	##############################################################################################################################
+	
+	
+	
 	#TODO Fix the web server to the files are always available or find a better CDN - the redirect issue is killing $aid
 	#TODO $aid needs the fuzzy search libraries built in as soon as possible - it's borderline useless right now
 	#TODO You have multilingual versions of the fact sheets, geo-locate or make multilingual usage more streamline - yesterday

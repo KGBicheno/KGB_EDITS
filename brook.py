@@ -87,6 +87,7 @@ async def on_message(message):
 
 #TODO Have the $extend being loaded here come from brook.conf
 #TODO role protect $extend and DM those roles on load to remind them to do it
+#TODO check for already-loaded extensions in case of a failed load forcing multiple calls to this command
 @bot.command(name="extend")
 async def trigger_extensions(ctx):
 	global easter_egg_journal
