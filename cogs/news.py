@@ -7,17 +7,26 @@ from pprint import pprint
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from discord.ext import commands
+import pymongo
+from bson.json_util import dumps
+import discord
+import spacy
+from newscatcher import Newscatcher, urls 
+# from bson.json_util import loads
 
 
-#TODO Add these fuzzy search APIs for news topics and first aid (or at least investigate)
-#http://www.bbc.co.uk/developer/technology/apis.html
-#https://www.bloomberg.com/professional/support/api-library/
-#https://developers.google.com/youtube
+# TODO Add these fuzzy search APIs for news topics and first aid (or at least investigate)
+# http://www.bbc.co.uk/developer/technology/apis.html
+# https://www.bloomberg.com/professional/support/api-library/
+# https://developers.google.com/youtube
 
 
-#TODO Research how to use classes to give secure control of the bot to future users
+# TODO Research how to use classes to give secure control of the bot to future users
+from discord.ext.commands import CommandInvokeError
+
+
 class News(commands.Cog):
-	"""A module containing the morale-boosting functions required during long-term isolation disasters"""
+	"""A module containing the news-gathering and presentation capabilities Brook possesses."""
 
 	def __init__(self, bot):
 		self.bot = bot
@@ -28,16 +37,20 @@ class News(commands.Cog):
 		self.nrm_spool_time = int
 		self.qfes_spool_time = int
 		self.bom_spool_time = int
+		self.__set_spool_time__()
 
-	#TODO Sit down and learn how class initialisation works and why __set_spool_time__ needed a decorator
+
+
+
+	# TODO Sit down and learn how class initialisation works and why __set_spool_time__ needed a decorator
 	@classmethod
 	def __set_spool_time__(cls):
-		cls.nrm_spool_time= 360
-		cls.qfes_spool_time = 360
+		cls.nrm_spool_time = 60
+		cls.qfes_spool_time = 60
 		cls.bom_spool_time = 360
 		return cls.nrm_spool_time, cls.qfes_spool_time, cls.bom_spool_time
 
-	#TODO Find out if non __init__ class methods are called at initialisation
+	# TODO Find out if non __init__ class methods are called at initialisation
 	@classmethod
 	def __set_spool_state__(cls):
 		cls.nrm_spool_on = False
@@ -45,10 +58,10 @@ class News(commands.Cog):
 		cls.bom_spool_on = False
 		return cls.nrm_spool_on, cls.qfes_spool_on, cls.bom_spool_on
 
-	#TODO define a spool as its own class at some point.
+	# TODO define a spool as its own class at some point.
 	def __update_spool_state__(self, spool, *arg: bool):
 		"""Takes a spool and a boolean to update the state of one of the cog's ingestion pipes."""
-		assert arg == isinstance(arg, bool),"True or False, is the spool on? Keep it boolean please."
+		assert arg == isinstance(arg, bool), "True or False, is the spool on? Keep it boolean please."
 		if spool == self.nrm_spool_on:
 			self.nrm_spool_on = arg
 		elif spool == self.qfes_spool_on:
@@ -56,10 +69,10 @@ class News(commands.Cog):
 		elif spool == self.bom_spool_on:
 			self.bom_spool_on = arg
 
-	#TODO Work out if giving each spool its own set and update functions/methods would be better
+	# TODO Work out if giving each spool its own set and update functions/methods would be better
 	def __update_spool_timing__(self, spool, time):
 		"""Takes a spool and an integer representing seconds to update how often an ingestion pipe checks its target"""
-		assert time == isinstance(time, int),"Please enter a whole integer for the number of seconds between checks"
+		assert time == isinstance(time, int), "Please enter a whole integer for the number of seconds between checks"
 		if spool == self.nrm_spool_time:
 			self.nrm_spool_time = time
 		elif spool == self.qfes_spool_time:
@@ -67,7 +80,7 @@ class News(commands.Cog):
 		elif spool == self.bom_spool_time:
 			self.bom_spool_time = time
 
-	#TODO Need an explicit way of returning spoolt state values to False if ingestion fall over
+	# TODO Need an explicit way of returning spoolt state values to False if ingestion fall over
 	@commands.command()
 	async def spooling_status(self, ctx):
 		"""Returns which services are currently pulling data from their sources."""
@@ -76,14 +89,14 @@ class News(commands.Cog):
 		                "BOM: " + str(self.bom_spool_on))
 		await ctx.send(spool_status)
 
-	#TODO Update the other cogs to show something at least this meaningful with their status functions, maybe rewire them all
+	# TODO Update the other cogs to show something at least this meaningful with their status functions, maybe rewire them all
 	@commands.command()
 	async def news_cog_status(self, ctx):
 		"""Returns the current build-status of the cog"""
-		spool_times = str(self.nrm_spool_time)+", "+str(self.qfes_spool_time)+", "+str(self.bom_spool_time)
+		spool_times = str(self.nrm_spool_time) + ", " + str(self.qfes_spool_time) + ", " + str(self.bom_spool_time)
 		await ctx.send("The news module is spooling at " + spool_times + " seconds per core, NQB notation.")
 
-	#TODO Have the sources in $economy scraped into the gaming cog for use with the monopoly sub-bot's strategy perhaps?
+	# TODO Have the sources in $economy scraped into the gaming cog for use with the monopoly sub-bot's strategy perhaps?
 	@commands.command()
 	async def economy(self, ctx, verbosity, destination):
 		"""Presents a reading recommendation or list depending on the verbosity flag -c|-v for concise or verbose. The destination flag -m sends the output to a DM instead of the context channel."""
@@ -112,7 +125,8 @@ class News(commands.Cog):
 		econ_114 = "Bet365 Australian Politics section: >> https://www.bet365.com.au/#/AS/B136/"
 		econ_115 = "I caution against disregarding the final 3 links when making decisions about macroeconomic " \
 		           "predictions. They've proven to be accurate leading indicators in the past. "
-		reading_list = [econ_100, econ_101, econ_102, econ_103, econ_104, econ_105, econ_106, econ_107, econ_108, econ_109,
+		reading_list = [econ_100, econ_101, econ_102, econ_103, econ_104, econ_105, econ_106, econ_107, econ_108,
+		                econ_109,
 		                econ_110, econ_111, econ_112, econ_113, econ_114, econ_115]
 		if verbosity == "-c":
 			if destination == "channel":
@@ -129,15 +143,13 @@ class News(commands.Cog):
 					await ctx.author.create_dm()
 					await ctx.author.send(item)
 
-	#TODO $qfes_pull needs an output, badly. Urgently. I need to plug in the python libraries they built for geo-spatial recognition
+	# TODO $qfes_pull needs an output, badly. Urgently. I need to plug in the python libraries they built for geo-spatial recognition
 	@commands.command()
 	async def qfes_pull(self, ctx):
 		"""Periodically checks the QFES Alerts and refills the container file if new alerts exist"""
-		#Add this feed as well https://newsroom.psba.qld.gov.au/RSS/0
+		# Add this feed as well https://newsroom.psba.qld.gov.au/RSS/0
 		await ctx.send("Pull-down loop initiating [QFES|RSS-feed|term-out:on]")
 		while ctx.bot.is_ready():
-			#self.qfes_spool_on = True
-			self.__update_spool_state__(self, self.qfes_spool_on, True)
 			with open("fire_alerts.json", "r") as container:
 				spark_dict = json.load(container)
 			watch_url = 'https://www.qfes.qld.gov.au/data/alerts/bushfireAlert.xml'
@@ -171,14 +183,15 @@ class News(commands.Cog):
 					print("Last QFES refill occurred at:", datetime.now().isoformat())
 					await asyncio.sleep(100)
 
-	#TODO $nrm_pull needs an output, urgently, and I need to decide between bare links and an embed
-	#TODO I need to find out why $qfes_pull seems to ingest faster than $nrm_pull
+	# TODO $nrm_pull needs an output, urgently, and I need to decide between bare links and an embed
+	# TODO I need to find out why $qfes_pull seems to ingest faster than $nrm_pull
 	@commands.command()
 	async def nrm_pull(self, ctx):
 		"""Periodically checks the NRM Overwatch RSS and updates the container file if new articles exist"""
+		# def aa(a):
+		#	return lambda a: a if a is not None else "---"
 		await ctx.send("Pull-down loop initiated [NRM|Overwatch|term-out:on]")
 		while ctx.bot.is_ready():
-			self.nrm_spool = 1
 			with open("NRM.json", "r") as container:
 				news_dict = json.load(container)
 			watch_url = 'https://www.qt.com.au/feeds/rss/kierans-overwatch-latest-list/'
@@ -191,7 +204,7 @@ class News(commands.Cog):
 					print("prevented duplicate ID")
 					break
 				else:
-					pprint(get_feed.title.string)
+					pprint(get_feed.title.string)		#get_feed will be the 'data' arguement to DbIngest
 					article_title = get_feed.title.string
 					print("Title: ", article_title)
 					article_guid = get_feed.guid.string[-8:-1]
@@ -204,22 +217,24 @@ class News(commands.Cog):
 					print("pubdate: ", article_pubdate)
 					article_short_description = get_feed.short_description.string
 					article_pic = get_feed.short_description.next_sibling['url']
-					news_dict.get("items").append({"title": article_title,
-					                               "article_date": article_pubdate,
-					                               "article_link": article_link,
-					                               "article_category": article_description,
-					                               "article_guid": article_guid,
+					article_tags = TagList(str(article_title), article_description)
+					print("TagList: ", TagList)
+					news_dict.get("items").append({"title"                    : article_title,
+					                               "article_date"             : article_pubdate,
+					                               "article_link"             : article_link,
+					                               "article_category"         : article_description,
+					                               "article_guid"             : article_guid,
 					                               "article_short_description": article_short_description,
-					                               "article_pic": article_pic
+					                               "article_pic"              : article_pic,
+												   "article_tag_list"		  : article_tags,
 					                               })
 					with open('NRM.json', "w") as data:
 						json.dump(news_dict, data, indent=2)
 					print("Last NRM refill occurred at:", datetime.now().isoformat())
-					await asyncio.sleep(30)
+					await asyncio.sleep(20)
 
 
-
-	@commands.command()
+	@commands.command(hidden=True)
 	async def bom_pull(self, ctx):
 		"""Periodically checks for new BOM alerts and updates the container file if they exist"""
 		await ctx.send("Pull-down loop initiated [BOM|RSS-feed|headers:explicit|term-out:on]")
@@ -228,9 +243,12 @@ class News(commands.Cog):
 			self.bom_spool = 1
 			with open("bom_alerts.json") as container:
 				bom_alerts = json.load(container)
-			bom_req = urllib.request.Request("http://www.bom.gov.au/fwo/IDZ00056.warnings_qld.xml", data=None, headers={
-				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0"},
-			                                 origin_req_host="123.211.133.33", unverifiable=True, method="GET")
+			bom_req = urllib.request.Request("http://www.bom.gov.au/fwo/IDZ00056.warnings_qld.xml",
+			                                 data=None,
+			                                 headers={
+				                                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:76.0) Gecko/20100101 Firefox/76.0"},
+			                                 origin_req_host="123.211.133.33", unverifiable=True,
+			                                 method="GET")
 			with urllib.request.urlopen(bom_req) as response:
 				bom_page = response.read()
 			print(bom_page)
@@ -259,12 +277,13 @@ class News(commands.Cog):
 	async def style_guide(self, ctx, search_term=None):
 		"""for a list of terms covered by the guide, invoke the style_list command"""
 		if search_term is None:
-			await ctx.send("> The style_guide command allows you to search the News Corp style guide for specific word usages.\n"
-			               "> Invoke the command and then follow it with the word you're looking for."
-			               """
-							```css
-							[For example:] $style guide about 
-						   ```""")
+			await ctx.send(
+				"> The style_guide command allows you to search the News Corp style guide for specific word usages.\n"
+				"> Invoke the command and then follow it with the word you're looking for."
+				"""
+				 ```css
+				 [For example:] $style guide about 
+				```""")
 		else:
 			assert isinstance(search_term, str)
 		with open('NCA_style_guide.json', 'r', encoding='UTF-8') as reference:
@@ -272,9 +291,105 @@ class News(commands.Cog):
 			reference = guide['entries']
 		for x in reference:
 			for entry, answer in x.items():
-				if  entry == search_term:
+				if entry == search_term:
 					result = "Entry: " + entry + "  Ruling: " + answer
 					await ctx.send(result)
+
+	@commands.command()
+	async def news(self, ctx):
+		article_list = []
+		with open("NRM.json", "r") as source:
+			json_block = json.load(source)
+		dict_list = json_block.get("items")
+		article_1 = dict_list[-1]
+		article_2 = dict_list[-2]
+		article_3 = dict_list[-3]
+		article_4 = dict_list[-4]
+		article_5 = dict_list[-5]
+		embed = discord.Embed(title="The Liquid Chronicle", url='https://www.buymeacoffee.com/KGBicheno',
+		                      type="rich", description="News on demand, brought straight to your channel",
+		                      color=0xff8000)
+		embed.set_author(name="KGB_EDITS: Brook Newsly", url='https://www.patreon.com/KGBicheno',
+		                 icon_url='https://i.imgur.com/KP6B8zx.png')
+		embed.set_thumbnail(url='https://i.imgur.com/bQSgvV1.jpg')
+		embed.add_field(name=article_1.get("title"), value=article_1.get("article_link"), inline=False)
+		embed.add_field(name=article_2.get("title"), value=article_2.get("article_link"), inline=False)
+		embed.add_field(name=article_3.get("title"), value=article_3.get("article_link"), inline=False)
+		embed.add_field(name=article_4.get("title"), value=article_4.get("article_link"), inline=False)
+		embed.add_field(name=article_5.get("title"), value=article_5.get("article_link"), inline=False)
+		embed.set_image(url="https://i.imgur.com/1yRp9ts.jpg")
+		embed.set_footer(
+			text="""The news presented here has not been vetted for accuracy or lack of bias - yet. By contributing to 
+	Kieran's Patreon you'll give him the time and resources to add the required technologies to Brook's code. 
+	Backing him starts at as little as $3 a month — check it out here: https://www.patreon.com/KGBicheno""")
+		await ctx.send(embed=embed)
+
+	@commands.command(hidden=True)
+	async def news_urls(self, ctx):
+		aus_substring = ".au"
+		blog_substring = "blog"
+		
+		english_urls = urls(language = 'en')
+		pprint(english_urls)
+		send_type = "The enlish_urls list registers as a {} python variable.".format(type(english_urls))
+		send_len = "The overall list is {} urls long.".format(len(english_urls))
+		send_aus = "Of those urls, {} contain .au somewhere.".format(len([i for i in english_urls if aus_substring in i]))
+		send_blog = "Lastly, {} refer to themselves as a 'blog' in some way.".format(len([i for i in english_urls if blog_substring in i]))
+		await ctx.send(send_type)
+		await ctx.send(send_len)
+		await ctx.send(send_aus)
+		await ctx.send(send_blog)
+		await ctx.send("The Australian-identifying urls are:")
+		for i in english_urls:
+			if ".au" in i:
+				await ctx.send(i)
+
+def TagList(arg, *arg2):
+	
+	print("arg: ", arg)
+	print("arg2: ", arg2)
+
+	description = str(arg2[0])
+
+	nlp = spacy.load("en_core_web_md")
+	
+	taglist = []
+	doc = nlp(arg)
+
+	for token in doc:
+		if token.pos_ == "PROPN":
+			if token.text not in taglist:
+				taglist.append(token.lemma_)
+		elif token.is_stop == True:
+			token = ""
+		elif token.pos_ == "PRON":
+			token = ""
+		elif token.pos_ == "VERB":
+			if token.text not in taglist:
+				taglist.append(token.lemma_)
+		elif token.pos_ == "NOUN":
+			taglist.append(token.lemma_)
+	if arg2 != None:
+		doc2 = nlp(description)
+		for token in doc2:
+			if token.pos_ == "PROPN":
+				if token.text not in taglist:
+					taglist.append(token.lemma_)
+			elif token.is_stop == True:
+				token = ""
+			elif token.pos_ == "PRON":
+				token = ""
+			elif token.pos_ == "VERB":
+				if token.text not in taglist:
+					taglist.append(token.lemma_)
+			elif token.pos_ == "NOUN":
+				if token.text not in taglist:
+					taglist.append(token.lemma_)
+	for tag in taglist:
+		print(tag)
+	return taglist
+
+
 
 
 def setup(bot):

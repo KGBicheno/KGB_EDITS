@@ -31,6 +31,12 @@ def get_prefix(client, message):
 		prefixes = ['>']
 	return commands.when_mentioned_or(*prefixes)(client, message)
 
+@commands.command(name="RestNow")
+@commands.has_guild_permissions(administrator=True)
+async def sleep_now(ctx):
+		"""When the jobs is done, I can be unloaded and returned to memory for the next emergency."""
+		print("Unloading Discord presence, returning to Golem.")
+		await bot.close()
 
 bot = commands.Bot(
 	command_prefix=get_prefix,
@@ -71,6 +77,20 @@ async def on_ready():
 	      f'{liquid_guild.name}(id {liquid_guild.id})'
 	      )
 	return
+
+@bot.listen()
+async def on_message(message):
+	if message.author.id == bot.user.id:
+		target = message.content
+		if target[:4] == "KGB_E":
+			await message.add_reaction('\U0001f44d') #Thumbs up
+			await message.add_reaction('\U0001F44E') #Thumbs down
+			await message.add_reaction('\U0000FE0F') #Alarmed/warning
+			await message.add_reaction('\U0000FE0F') #Love heart
+			await message.add_reaction('\U0001F494') #Broken heart
+			await message.add_reaction('\U0001F9FB') #Shitrag/toilet paper
+			await message.add_reaction('\U00002754') #Question/help
+
 
 #TODO Have the $extend being loaded here come from brook.conf
 #TODO role protect $extend and DM those roles on load to remind them to do it
@@ -245,6 +265,13 @@ async def need_tunes_bro(ctx):
 		egg = random.randrange(1, 100)
 		if egg >= 98:
 			await ctx.author.send("?play The Banshee Queen, The Daughter Who Died")
+
+@bot.command(name="RestNow")
+@commands.has_guild_permissions(administrator=True)
+async def sleep_now(ctx):
+	"""If an administrator needs me to log out of the server, they can invoke this script. I can then be invited back later."""
+	print("Unloading Discord presence, returning to Golem.   ", ctx.author)
+	await bot.close()
 
 #TODO find what the Discord log is saying that's important and have it piped back
 logger = logging.getLogger('discord')
