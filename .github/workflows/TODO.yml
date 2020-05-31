@@ -1,0 +1,15 @@
+- name: TODO to Issue
+  uses: alstr/todo-to-issue-action@v1.2-beta
+  with:
+    # The path to the repository where the action will be used, e.g. 'alstr/my-repo' (automatically set)
+    REPO: 
+    # The SHA of the last pushed commit (automatically set)
+    BEFORE: 
+    # The SHA of the latest commit (automatically set)
+    SHA: 
+    # The GitHub access token to allow us to retrieve, create and update issues (automatically set)
+    TOKEN: 
+    # The label that will be used to identify TODO comments (by default this is # TODO for Python)
+    LABEL: 
+    # The marker used to signify a line comment in your code (by default this is # for Python)
+    COMMENT_MARKER: 
