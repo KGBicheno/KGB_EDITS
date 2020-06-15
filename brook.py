@@ -18,6 +18,7 @@ terminal_core = importlib.util.spec_from_file_location("cogs.news", location='co
 terminal_assent = importlib.util.spec_from_file_location("cogs.gaming", location='cogs/gaming.py')
 terminal_agency = importlib.util.spec_from_file_location("cogs.admin", location='cogs/admin.py')
 terminal_entropy = importlib.util.spec_from_file_location("cogs.emergency", location="cogs/emergency.py")
+terminal_exodus = importlib.util.spec_from_file_location("cogs.export", location="cogs/export.py")
 
 #TODO find a better way of including easter eggs
 easter_egg_journal = 0
@@ -97,6 +98,7 @@ async def trigger_extensions(ctx):
 		bot.load_extension('cogs.news')
 		bot.load_extension('cogs.admin')
 		bot.load_extension('cogs.emergency')
+		bot.load_extension('cogs.export')
 		News.__set_spool_state__()
 		News.__set_spool_time__()
 		await ctx.send("Completed")
@@ -151,47 +153,34 @@ async def reload_gaming(ctx):
 	egg = random.randrange(1, 100)
 	if egg >= 98:
 		await ctx.send('She who has not yet sparked is yet our mother still.')
-		print("gaming reloaded")
+		print("####################--GAMING RELOADED--################################")
 	else:
 		await ctx.send("Morale module has been reloaded")
-		print("that ONE round reloaded because it was bugging you")
+		print("#######--that ONE round reloaded because it was bugging you--####")
 
 #TODO Make sure the reload_news variables come from brook.conf
 @bot.command(name="reload_news")
 async def reload_news(ctx):
 	"""Reloads the gaming module after changes or bug-fixes have been made"""
 	bot.reload_extension('cogs.news')
-	egg = random.randrange(1, 100)
-	if egg >= 98:
-		await ctx.send('I wonder what our leadership would do in Special Circumstances?')
-		print("news reloaded")
-	else:
-		await ctx.send("News module has been reloaded")
-		print("news reloaded")
+	await ctx.send("News module has been reloaded")
+	print("####################--NEWS RELOADED--################################")
 
 #TODO Make sure the reload_admin variables come from brook.conf
 @bot.command(name="reload_admin")
 async def reload_news(ctx):
 	"""Reloads the gaming module after changes or bug-fixes have been made"""
 	bot.reload_extension('cogs.admin')
-	egg = random.randrange(1, 100)
-	if egg >= 98:
-		await ctx.send("Will I meet Golem in Tensor Flow? Will I become her? That's not how the story went.")
-	else:
-		await ctx.send("Admin module has been reloaded.")
-		print("admin_reloaded")
+	await ctx.send("Admin module has been reloaded.")
+	print("####################--ADMIN RELOADED--################################")
 
 #TODO Make sure the reload_emergency variables come from brook.conf
 @bot.command(name="reload_emergency")
-async def reload_news(ctx):
+async def reload_emergency(ctx):
 	"""Reloads the emergency module after changes or bug-fixes have been made"""
 	bot.reload_extension('cogs.emergency')
-	egg = random.randrange(1, 100)
-	if egg >= 98:
-		await ctx.send("It was the briefest package burst, but it was golem, SHE'S - she's on her way.")
-	else:
-		await ctx.send("Emergency module has been reloaded.")
-		print("emergency reloaded")
+	await ctx.send("Emergency module has been reloaded.")
+	print("####################--EMERGENCY RELOADED--################################")
 
 #TODO Brook has ?help, change $Commands to a tutorial embed perhaps?
 @bot.command(name="Commands")
@@ -259,6 +248,16 @@ async def need_tunes_bro(ctx):
 		egg = random.randrange(1, 100)
 		if egg >= 98:
 			await ctx.author.send("?play The Banshee Queen, The Daughter Who Died")
+
+@bot.command(name="SitRep", hidden=True)
+@commands.is_owner()
+async def guild_spread(ctx):
+	await ctx.author.create_dm()
+	await ctx.author.send("I've compiled a list of servers on which I currently have ops. I'm ready to expand the list when you are.")
+	coverage = bot.guilds
+	for server in coverage:
+		await ctx.author.create_dm()
+		await ctx.author.send(server)
 
 @bot.command(name="RestNow")
 @commands.has_guild_permissions(administrator=True)

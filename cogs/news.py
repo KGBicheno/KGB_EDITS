@@ -183,6 +183,8 @@ class News(commands.Cog):
 					print("Last QFES refill occurred at:", datetime.now().isoformat())
 					await asyncio.sleep(100)
 
+	nlp = spacy.load("en_core_web_md")
+
 	# TODO $nrm_pull needs an output, urgently, and I need to decide between bare links and an embed
 	# TODO I need to find out why $qfes_pull seems to ingest faster than $nrm_pull
 	@commands.command()
@@ -191,6 +193,7 @@ class News(commands.Cog):
 		# def aa(a):
 		#	return lambda a: a if a is not None else "---"
 		await ctx.send("Pull-down loop initiated [NRM|Overwatch|term-out:on]")
+		nlp = spacy.load("en_core_web_md")
 		while ctx.bot.is_ready():
 			with open("NRM.json", "r") as container:
 				news_dict = json.load(container)
@@ -216,9 +219,12 @@ class News(commands.Cog):
 					article_pubdate = datetime.now().isoformat()
 					print("pubdate: ", article_pubdate)
 					article_short_description = get_feed.short_description.string
-					article_pic = get_feed.short_description.next_sibling['url']
-					article_tags = TagList(str(article_title), article_description)
-					print("TagList: ", TagList)
+					try:
+						article_pic = get_feed.short_description.next_sibling['url']
+					except TypeError:
+						article_pic = "https://i.imgur.com/1yRp9ts.jpg"
+					print("article_pic: ", article_pic)
+					article_tags = TagList(nlp, str(article_title), article_description)
 					news_dict.get("items").append({"title"                    : article_title,
 					                               "article_date"             : article_pubdate,
 					                               "article_link"             : article_link,
@@ -344,14 +350,13 @@ class News(commands.Cog):
 			if ".au" in i:
 				await ctx.send(i)
 
-def TagList(arg, *arg2):
+def TagList(nlp, arg, *arg2):
 	
 	print("arg: ", arg)
 	print("arg2: ", arg2)
 
 	description = str(arg2[0])
 
-	nlp = spacy.load("en_core_web_md")
 	
 	taglist = []
 	doc = nlp(arg)

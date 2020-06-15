@@ -28,12 +28,6 @@ class Gaming(commands.Cog):
             total_outcome = outcome1 + outcome2
             await ctx.send("> :game_die: <@"+str(ctx.author.id)+"> rolled: **" + str(total_outcome) + "** \n> dice = " + str(outcome1) + ", " + str(outcome2))
 
-    #TODO Delete the $hello command in gaming once I have a better structure for quickly checking for proper loads
-    @commands.command()
-    async def hello(self, ctx):
-        print("Hello World!")
-        await ctx.send("Hello World!")
-
     #TODO the $roll function needs to be the basis for the heavy-lifting of multivariate situational computation - fix its architecture asap, the regex needs to be perfect
     @commands.command()
     async def roll(self, ctx, dice_roll):
