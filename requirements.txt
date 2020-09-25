@@ -31,7 +31,7 @@ georss-qld-bushfire-alert-client==0.3
 google-auth==1.13.1
 gspread==3.4.2
 haversine==2.2.0
-httplib2==0.17.2
+httplib2==0.18.0
 idna==2.9
 importlib==1.0.4
 ipaddress==1.0.23
