@@ -80,13 +80,15 @@ async def on_message(message):
 #TODO Have the $extend being loaded here come from brook.conf
 #TODO role protect $extend and DM those roles on load to remind them to do it
 #TODO check for already-loaded extensions in case of a failed load forcing multiple calls to this command
-	"""Enables the morale and news modules"""
-	bot.load_extension('cogs.gaming')
+@bot.command(name="extend")
+async def extend(ctx):
+	"""Enables all modules"""
+	#bot.load_extension('cogs.gaming')
 	bot.load_extension('cogs.news')
-	bot.load_extension('cogs.admin')
+	#bot.load_extension('cogs.admin')
 	bot.load_extension('cogs.emergency')
 	bot.load_extension('cogs.export')
-	bot.load_extension('cogs.board')
+	#bot.load_extension('cogs.board')
 	News.__set_spool_state__()
 	News.__set_spool_time__()
 	await ctx.send("Completed")
