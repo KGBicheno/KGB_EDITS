@@ -183,7 +183,7 @@ class News(commands.Cog):
 					print("Last QFES refill occurred at:", datetime.now().isoformat())
 					await asyncio.sleep(100)
 
-	nlp = spacy.load("en_core_web_md")
+	nlp = spacy.load("en_core_web_lg")
 
 	# TODO $nrm_pull needs an output, urgently, and I need to decide between bare links and an embed
 	# TODO I need to find out why $qfes_pull seems to ingest faster than $nrm_pull
