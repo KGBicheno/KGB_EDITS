@@ -1,8 +1,8 @@
 # KGB_EDITS
 
-**K**ieran **G** **B**icheno's **E**mergency **D**ispatcher **I**n **T**raumatic **S**ituations
+**K**ieran **G** **B**icheno's **E**xploratory **D**ata **I**ntelligence **T**ransmission **S**ystem
 
-A backup bot designed to dispatch emergency services alerts in cases where human agents are no longer able to do so but internet connectivity has not yet been destroyed.
+A news bot capable of a high degree of media sitiuational-awareness. 
 
 ## How to invite Brook to your server
 
