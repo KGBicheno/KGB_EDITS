@@ -69,7 +69,7 @@ prawcore==1.0.1
 prometheus-client==0.7.1
 prompt-toolkit==3.0.5
 psycopg2==2.8.5
-py==1.8.1
+py==1.10.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 Pygments==2.7.4
